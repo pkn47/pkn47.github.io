@@ -1,99 +1,25 @@
 ---
 layout: essay
 type: essay
-title: "Smart Questions, Good Answers"
+title: "Smart Questions?"
 # All dates must be YYYY-MM-DD format!
-date: 2015-09-08
+date: 2026-09-12
 published: true
 labels:
   - Questions
   - Answers
-  - StackOverflow
 ---
 
-<img width="300px" class="rounded float-start pe-4" src="../img/smart-questions/rtfm.png">
+Learning how to ask proper questions and communicate effectively amongst your peers and the like will be one of the most important skills you will develop as a software engineer, and as a person in society altogether. The ability to get your thoughts and concerns across to another person effectively and directly will allow for a harmony within your team and within yourself that would not be possible if you were unable to communicate effectively. Good communication creates strong teams, even stronger projects, and a smooth workflow that could never be found in weak, uncommunicative teams.
 
-## Is there such thing as a stupid question?
+Eric Raymond’s essay, “How to Ask Questions the Smart Way,” elaborates upon this idea and provides effective guidelines to create effective communication, particularly within the open-source software engineering community. Raymond essentially states that an expert’s time is a finite resource that should not be wasted when looking for guidance. If you respect an expert’s time and effort, they will be of great use and help to you. If you waste their time and energy, you will be ignored and ridiculed. 
 
-I’ve had instructors address a whole class and say, “There’s no such thing as a stupid question.” I now know that is in fact not true because I’ve challenged the statement and received the appropriate dumb-stricken, annoyed look. There are definitely stupid questions, and along with that, usually unhelpful answers. Though we all might be guilty of being callous and making people victim to our poorly formed questions, there are steps we can take to ask smarter questions that hopefully don’t illicit the dreaded “rtfm” or “stfw” response.
+Raymond speaks on this idea that to ask a question is to request a favor from a person with more expertise on the subject at hand. To earn such a favor, one must prove that they are not a “lazy sponge,” as Raymond humorously states. Raymond expands upon this idea further, by stating that one should present the problem at hand in a way that makes it easy for an expert to quickly understand and answer. Raymond speaks about not using unnecessary language, and to be precise, with clear language.
 
-## What’s a smart question?
+A clear example of everything Raymond speaks about in his essay is found in this question asked almost 14 years ago, which has garnered a staggering 27 thousand upvotes: “Why is processing a sorted array faster than processing an unsorted array?” In this question, OP (original poster) provides concise and self-contained C++ code that anyone could copy and run for themselves to see the speed difference. OP is specific with his data, and provides exact timing data. OP has a clear goal in finding the reason as to why processing a sorted array is faster than processing an unsorted array. This question does everything right to make it easy for experts to answer, as Raymond would say. Because of how well the question was presented, it led to one of the most legendary and historically iconic responses in all of Stack Overflow: the answer given by Mysticial. This user gave the infamous “railroad junction” analogy, which has garnered fame as one of the most helpful and effective answers given on the entire website.
 
-Stack Overflow, a question and answer site for programmers, is a great resource for anyone who may have issues with code or who may simply want to learn new or different methods of doing something. There I found examples of good questions and bad questions, which could probably be improved.
+An example of a not so smart question would be something like “HELP ME CODING ERRORS!!! URGENT!!” This user speaks with very general language, and gives no context as to what his issue is or where his issue is coming from. Statements like, “it keeps giving me an error when i try to run it. i think its a bug in the compiler” assumes fault on other factors like the compiler, and doesn’t specify any particular error anywhere in his question. This user also uploads the entire file for others to look through instead of isolating the problem. This question violates many of the principles Raymond speaks about, and the thread downvoted heavily, and quickly closed for lack of details.
 
-In the following example, we examine the components of a decent question. In this case, the asker is trying to figure out a way to get the date of the previous month in Python.
+Learning about Raymond’s principles in becoming and effective question-asker has given me a lot of newfound perspective in how I type up questions to my peers and mentors. Being precise in the questions I ask online or with my professors isn’t necessarily entirely about just getting an answer, but it also has implications on my reputation in the developer community around me. Becoming an effective communicator will greatly improve my workflow and the workflow of others.
 
-```
-Q: python date of the previous month
-
-I am trying to get the date of the previous month with python. Here is what i've tried:
-
-str( time.strftime('%Y') ) + str( int(time.strftime('%m'))-1 )
-
-However, this way is bad for 2 reasons: First it returns 20122 for the February of 2012 (instead of 201202) 
-and secondly it will return 0 instead of 12 on January.
-
-I have solved this trouble in bash with:
-
-echo $(date -d"3 month ago" "+%G%m%d")
-
-I think that if bash has a built-in way for this purpose, then python, much more equipped, should provide something 
-better than forcing writing one's own script to achieve this goal. Of course i could do something like:
-
-if int(time.strftime('%m')) == 1:
-    return '12'
-else:
-    if int(time.strftime('%m')) < 10:
-        return '0'+str(time.strftime('%m')-1)
-    else:
-        return str(time.strftime('%m') -1)
-        
-I have not tested this code and i don't want to use it anyway (unless I can't find any other way:/)
-
-Thanks for your help!
-```
-
-While the heading of his question could be better, it does convey what he’s trying to figure out. Usually something as brief as “python date of previous month” is what other users would enter in as search terms on Google, making it easily found. Another good thing about the question is that it’s not just a question. The asker shows what he or she has done and that he or she has put in some effort to answer the question. And while it may not be as important as the question itself, the asker shows courtesy, which does increase the chance of getting an answer.
-
-```
-A: datetime and the datetime.timedelta classes are your friend.
-
-1. find today
-2. use that to find the first day of this month.
-3. use timedelta to backup a single day, to the last day of the previous month.
-4. print the YYYYMM string you're looking for.
-
-Like this:
-
- >>> import datetime
- >>> today = datetime.date.today()
- >>> first = datetime.date(day=1, month=today.month, year=today.year)
- >>> lastMonth = first - datetime.timedelta(days=1)
- >>> print lastMonth.strftime("%Y%m")
- 201202
- >>>
-
-```
- 
-The asker received six possible answers, and he or she was successful in inciting discussion from multiple users. The answers themselves were clear and were devoid of the rumored sarcasm and hostility of “hackers.” Since I myself have referenced this page and found it useful, I can confidently say that it is a good question.
-
-## The foolproof way to get ignored.
-
-While there are decent questions that benefit everyone, there are those one can ask to create an entirely different effect. In the following example, a user asks how he would, in short, create a desktop application with Facebook.
-
-```
-Q: Facebook Desktop Notifier
-
-I am a beginner programmer that have never used anything other than what's included in a language.
-
-I am trying to create a desktop application that notifies me anytime I get an update onfacebook. 
-How should go about doing this? Thanks in advance.
-
-edit Sorry I was not clear. Is there any way to make a DESKTOP application with facebook?
-```
-
-A simple “yes” would have answered the question, but we know that’s not the sort of answer he or she is looking for. Fortunately, someone kindly responded with a link to Facebook’s developer website. The asker should have done more research on his or her potential project. Then further down the road, he or she could have asked more specific and detailed questions that wouldn’t require a thousand-paged response for a sufficient answer.
-
-## Conclusion
-
-When we rely on others’ generosity and expertise to provide answers to our questions, it should hold that the question we ask should be one that leads to efficient and effective help that not only benefits us, but also the people we ask and others who might ask the same question in the future. Thus, if you have a question… make it a smart one! Asking questions may not always get you the best answer, but asking them in a way that will make others want to answer them will increase the success of finding a good solution and make it a positive experience on all sides.
+“I used Google Gemini to help generate a representative 'bad' question for comparison and to assist with the structural flow of this essay.”
