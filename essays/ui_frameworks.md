@@ -9,7 +9,7 @@ labels:
   - UI Frameworks
   - Reflection
 ---
-(![Old Facebook user interface](https://ibb.co/DD92nz5Y))
+![Old Facebook user interface](image.png)
 
 Coding in frontends has been one of the most fun things I've done in this school's computer science program. It's something I want to pursue in the future and make a career out of. I've really enjoyed learning about the basic frontend stack, consisting of an index.html and style.css. That basic stack alone is already immensely powerful, and I can see how the internet begun to bloom in early times with this technology.
 
